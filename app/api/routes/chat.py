@@ -7,7 +7,7 @@ router = APIRouter(prefix="/chat", tags=["chat"])
 
 
 class Turn(BaseModel):
-    role: str      # "user" หรือ "model"
+    role: str
     content: str
 
 

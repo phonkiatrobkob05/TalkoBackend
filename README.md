@@ -1,9 +1,9 @@
 # Talko Backend
 
-Backend ของโปรเจกต์ Talko (conversational language-learning) — FastAPI + Gemini
+Talko Backend
 
 ## Requirements
-- Python 3.14 (pin ให้ทั้งทีมใช้เวอร์ชันเดียวกัน)
+- Python 3.14
 
 ## Setup
 ```powershell
@@ -26,4 +26,4 @@ uvicorn app.main:app --reload
 
 ## Endpoints (ปัจจุบัน)
 - `GET  /health` — เช็กว่า server ทำงาน
-- `POST /chat`   — คุยกับ AI (body: `{ "message": "...", "history": [] }`)
+- `POST /chat`   — คุยกับ AI (body: `{ "message": "...", "history": [] }`) แก้ตรง "..." ใน message ได้เลย ex. Hello Talko
