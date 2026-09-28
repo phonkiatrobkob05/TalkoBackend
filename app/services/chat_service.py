@@ -14,10 +14,7 @@ def build_system_prompt(req: ChatRequest, scenario: Scenario | None) -> str:
     parts = [BASE_IDENTITY]
 
     if req.mode == "scenario" and scenario is not None:
-        parts.append(
-            f"Role-play this scenario with the learner: {scenario.title}. "
-            f"{scenario.description}"
-        )
+        parts.append(scenario.system_prompt)
 
     if req.level:
         parts.append(
