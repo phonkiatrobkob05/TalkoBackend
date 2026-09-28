@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 
 from app.db.session import get_db
@@ -10,7 +10,11 @@ router = APIRouter(prefix="/word", tags=["word"])
 
 @router.get("/{word}", response_model=WordOut)
 def get_word(word: str, db: Session = Depends(get_db)) -> WordOut:
-    entry = word_service.get_or_create(db, word)
+    try:
+        entry = word_service.get_or_create(db, word)
+    except Exception:
+        raise HTTPException(status_code=503, detail="Word service is busy, please try again.")
+
     return WordOut(
         word=entry.word,
         pronunciation=entry.pronunciation,
