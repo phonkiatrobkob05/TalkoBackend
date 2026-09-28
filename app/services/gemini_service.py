@@ -6,13 +6,7 @@ from app.core.config import settings
 client = genai.Client(api_key=settings.gemini_api_key)
 
 
-SYSTEM_PROMPT = (
-    "You are a friendly language-learning conversation partner. "
-    "Keep replies short, natural, and encourage the learner to keep talking."
-)
-
-
-def generate_reply(message: str, history: list[dict] | None = None) -> str:
+def generate(system_prompt: str, message: str, history: list[dict] | None = None) -> str:
     contents: list[types.Content] = []
 
     if history:
@@ -29,6 +23,6 @@ def generate_reply(message: str, history: list[dict] | None = None) -> str:
     response = client.models.generate_content(
         model=settings.gemini_model,
         contents=contents,
-        config=types.GenerateContentConfig(system_instruction=SYSTEM_PROMPT),
+        config=types.GenerateContentConfig(system_instruction=system_prompt),
     )
     return response.text or ""

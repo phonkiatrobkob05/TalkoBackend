@@ -1,26 +1,13 @@
-from fastapi import APIRouter
-from pydantic import BaseModel
+from fastapi import APIRouter, Depends
+from sqlalchemy.orm import Session
 
-from app.services.gemini_service import generate_reply
+from app.db.session import get_db
+from app.schemas.chat import ChatRequest, ChatResponse
+from app.services import chat_service
 
 router = APIRouter(prefix="/chat", tags=["chat"])
 
 
-class Turn(BaseModel):
-    role: str
-    content: str
-
-
-class ChatRequest(BaseModel):
-    message: str
-    history: list[Turn] = []
-
-
-class ChatResponse(BaseModel):
-    reply: str
-
-
 @router.post("", response_model=ChatResponse)
-def chat(req: ChatRequest) -> ChatResponse:
-    reply = generate_reply(req.message, [t.model_dump() for t in req.history])
-    return ChatResponse(reply=reply)
+def chat(req: ChatRequest, db: Session = Depends(get_db)) -> ChatResponse:
+    return ChatResponse(reply=chat_service.reply(db, req))
