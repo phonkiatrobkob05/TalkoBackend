@@ -2,7 +2,7 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 
-from app.api.routes import chat, scenarios
+from app.api.routes import chat, scenarios, word
 from app.core.config import settings
 from app.db.seed import seed_scenarios
 from app.db.session import init_db
@@ -19,6 +19,7 @@ app = FastAPI(title=settings.app_name, lifespan=lifespan)
 
 app.include_router(chat.router)
 app.include_router(scenarios.router)
+app.include_router(word.router)
 
 
 @app.get("/health", tags=["system"])
