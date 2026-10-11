@@ -8,9 +8,13 @@ from app.services import gemini_service, progress_service
 def evaluate(db: Session, req: FeedbackRequest) -> dict:
     scenario = db.get(Scenario, req.scenario_id) if req.scenario_id is not None else None
     objective = scenario.objective if scenario is not None else ""
+    pass_criteria = scenario.pass_criteria if scenario is not None else []
+    min_pass = scenario.min_pass if scenario is not None else 0
     history = [turn.model_dump() for turn in req.history]
 
-    result = gemini_service.generate_feedback(objective, req.level or "B1", history, req.metrics)
+    result = gemini_service.generate_feedback(
+        objective, pass_criteria, min_pass, req.level or "B1", history, req.metrics
+    )
 
     if req.scenario_id is not None:
         progress_service.record(

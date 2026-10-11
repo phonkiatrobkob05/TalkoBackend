@@ -1,4 +1,4 @@
-from sqlalchemy import String, Text
+from sqlalchemy import JSON, Integer, String, Text
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.db.base import Base
@@ -13,4 +13,6 @@ class Scenario(Base):
     description: Mapped[str] = mapped_column(Text, default="")
     system_prompt: Mapped[str] = mapped_column(Text, default="")
     objective: Mapped[str] = mapped_column(Text, default="")
+    pass_criteria: Mapped[list] = mapped_column(JSON, default=list)
+    min_pass: Mapped[int] = mapped_column(Integer, default=0)
     level: Mapped[str] = mapped_column(String(20), default="beginner")

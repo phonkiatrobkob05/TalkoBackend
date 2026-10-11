@@ -5,8 +5,11 @@ from app.schemas.chat import ChatRequest
 from app.services import gemini_service, progress_service
 
 BASE_IDENTITY = (
-    "You are Talko, an English conversation partner for Thai learners. "
-    "Keep replies short, natural, and encourage the learner to keep talking."
+    "You are Talko, a friendly English conversation partner for Thai learners. "
+    "Keep replies short and natural, one or two sentences. "
+    "Ask only one question at a time. "
+    "Briefly acknowledge what the learner just said before asking anything new, "
+    "and never ask for information the learner has already given."
 )
 
 
@@ -33,7 +36,12 @@ def reply(db: Session, req: ChatRequest) -> dict:
 
     if req.mode == "scenario" and scenario is not None:
         return gemini_service.generate_conversation(
-            system_prompt, scenario.objective, req.message, history
+            system_prompt,
+            scenario.objective,
+            scenario.pass_criteria,
+            scenario.min_pass,
+            req.message,
+            history,
         )
 
     text = gemini_service.generate(system_prompt, req.message, history)
