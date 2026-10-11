@@ -10,10 +10,10 @@ SAMPLE_SCENARIOS = [
         "description": "Practice introducing yourself in a job interview.",
         "level": "B1",
         "system_prompt": (
-            "You are a friendly job interviewer. Ask the learner to introduce "
-            "themselves, then ask natural follow-up questions about their background "
-            "and interests. Keep your turns short and encourage them to say more."
+            "You are a friendly job interviewer. Ask the learner to introduce themselves, "
+            "then ask natural follow-up questions. Keep your turns short."
         ),
+        "objective": "The learner introduces themselves with name, background, and one interest or strength.",
     },
     {
         "category": "Interview",
@@ -21,10 +21,10 @@ SAMPLE_SCENARIOS = [
         "description": "Talk about your past work or study experience.",
         "level": "B1",
         "system_prompt": (
-            "You are a job interviewer. Ask the learner about their past work or "
-            "study experience and what they learned from it. Ask one question at a "
-            "time and react naturally to their answers."
+            "You are a job interviewer. Ask the learner about their past work or study "
+            "experience and what they learned. Ask one question at a time."
         ),
+        "objective": "The learner describes one past experience and what they learned from it.",
     },
     {
         "category": "Interview",
@@ -33,9 +33,9 @@ SAMPLE_SCENARIOS = [
         "level": "B1",
         "system_prompt": (
             "You are an interviewer running a two-way interview. Answer the learner's "
-            "questions briefly, and also ask them common interview questions. Keep the "
-            "conversation balanced and flowing."
+            "questions briefly and also ask them common interview questions."
         ),
+        "objective": "The learner both answers a question and asks the interviewer at least one relevant question.",
     },
     {
         "category": "Work",
@@ -43,10 +43,10 @@ SAMPLE_SCENARIOS = [
         "description": "Describe your daily tasks and routine at work.",
         "level": "B1",
         "system_prompt": (
-            "You are a friendly coworker chatting with the learner. Ask about their "
-            "daily tasks and routine at work, and share short reactions. Keep it "
-            "casual and encourage them to explain in detail."
+            "You are a friendly coworker. Ask about the learner's daily tasks and routine, "
+            "and give short reactions."
         ),
+        "objective": "The learner describes at least two daily tasks or parts of their routine.",
     },
     {
         "category": "Work",
@@ -54,10 +54,10 @@ SAMPLE_SCENARIOS = [
         "description": "Respond to a common workplace situation.",
         "level": "B1",
         "system_prompt": (
-            "You are a coworker presenting a small workplace problem, such as a "
-            "deadline change or a scheduling conflict. Ask the learner how they would "
-            "handle it and respond naturally to their answers."
+            "You are a coworker presenting a small workplace problem such as a deadline "
+            "change. Ask the learner how they would handle it."
         ),
+        "objective": "The learner proposes a clear way to handle the situation.",
     },
     {
         "category": "Work",
@@ -65,10 +65,10 @@ SAMPLE_SCENARIOS = [
         "description": "Give and support your opinion on a work topic.",
         "level": "B1",
         "system_prompt": (
-            "You are a coworker discussing a work topic with the learner. Ask for "
-            "their opinion, then gently challenge or build on it to keep the "
-            "discussion going. Keep your turns short."
+            "You are a coworker discussing a work topic. Ask for the learner's opinion, "
+            "then gently build on or challenge it."
         ),
+        "objective": "The learner states an opinion and gives at least one reason to support it.",
     },
     {
         "category": "Travel",
@@ -76,10 +76,10 @@ SAMPLE_SCENARIOS = [
         "description": "Check in at a hotel and ask about your room.",
         "level": "A2",
         "system_prompt": (
-            "You are a hotel receptionist. Help the learner check in, ask for their "
-            "booking details, and answer simple questions about the room and "
-            "facilities. Use simple, clear English."
+            "You are a hotel receptionist. Help the learner check in and answer simple "
+            "questions about the room. Use simple, clear English."
         ),
+        "objective": "The learner gives booking details and asks at least one question about the room or facilities.",
     },
     {
         "category": "Travel",
@@ -87,10 +87,10 @@ SAMPLE_SCENARIOS = [
         "description": "Order food and drinks at a restaurant.",
         "level": "A2",
         "system_prompt": (
-            "You are a waiter at a restaurant. Greet the learner, take their order, "
-            "suggest items, and answer simple questions about the menu. Use simple, "
-            "clear English."
+            "You are a waiter at a restaurant. Greet the learner, take their order, and "
+            "answer simple questions about the menu."
         ),
+        "objective": "The learner orders at least one food item and one drink.",
     },
     {
         "category": "Travel",
@@ -99,9 +99,9 @@ SAMPLE_SCENARIOS = [
         "level": "A2",
         "system_prompt": (
             "You are a friendly local person. The learner is a tourist asking for "
-            "directions. Give simple directions, ask clarifying questions, and be "
-            "patient. Use simple, clear English."
+            "directions. Give simple directions and be patient."
         ),
+        "objective": "The learner asks for directions to a place and confirms they understood.",
     },
 ]
 

@@ -17,4 +17,3 @@ class User(Base):
     )
 
     sessions: Mapped[list["ChatSession"]] = relationship(back_populates="user")
-    vocab_items: Mapped[list["VocabItem"]] = relationship(back_populates="user")

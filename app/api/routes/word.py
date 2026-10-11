@@ -12,8 +12,8 @@ router = APIRouter(prefix="/word", tags=["word"])
 def get_word(word: str, db: Session = Depends(get_db)) -> WordOut:
     try:
         entry = word_service.get_or_create(db, word)
-    except Exception:
-        raise HTTPException(status_code=503, detail="Word service is busy, please try again.")
+    except Exception as exc:
+        raise HTTPException(status_code=503, detail=f"{type(exc).__name__}: {exc}")
 
     return WordOut(
         word=entry.word,

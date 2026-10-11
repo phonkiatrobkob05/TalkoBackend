@@ -12,4 +12,5 @@ class Scenario(Base):
     title: Mapped[str] = mapped_column(String(200))
     description: Mapped[str] = mapped_column(Text, default="")
     system_prompt: Mapped[str] = mapped_column(Text, default="")
+    objective: Mapped[str] = mapped_column(Text, default="")
     level: Mapped[str] = mapped_column(String(20), default="beginner")

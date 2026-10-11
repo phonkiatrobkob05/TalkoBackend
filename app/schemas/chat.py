@@ -9,6 +9,7 @@ class Turn(BaseModel):
 
 
 class ChatRequest(BaseModel):
+    user_id: str = "demo"
     mode: Literal["free", "scenario"] = "free"
     scenario_id: int | None = None
     message: str
@@ -18,3 +19,4 @@ class ChatRequest(BaseModel):
 
 class ChatResponse(BaseModel):
     reply: str
+    finished: bool = False
