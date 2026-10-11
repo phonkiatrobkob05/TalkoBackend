@@ -3,7 +3,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.api.routes import chat, feedback, progress, scenarios, vocab, word
+from app.api.routes import chat, feedback, profile, progress, scenarios, vocab, word
 from app.core.config import settings
 from app.db.seed import seed_scenarios
 from app.db.session import init_db
@@ -32,6 +32,7 @@ app.include_router(word.router)
 app.include_router(feedback.router)
 app.include_router(progress.router)
 app.include_router(vocab.router)
+app.include_router(profile.router)
 
 
 @app.get("/health", tags=["system"])
